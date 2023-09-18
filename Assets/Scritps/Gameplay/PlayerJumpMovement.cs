@@ -23,7 +23,7 @@ public class PlayerJumpMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(3.5f, 0.25f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(2f, 0.5f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
