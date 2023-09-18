@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BackgroundMovement : MonoBehaviour
 {
-    //test 
-
     float moveSpeed;
     Vector2 offset;
 
