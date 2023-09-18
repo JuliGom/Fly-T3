@@ -22,7 +22,7 @@ public class BalloonMovement : MonoBehaviour
     {
         balloonOn = false;
         rb = GetComponent<Rigidbody2D>();
-        balloonDelay = 0.75f;
+        balloonDelay = 1f;
     }
 
     // Update is called once per frame
@@ -53,9 +53,9 @@ public class BalloonMovement : MonoBehaviour
             break;
 
             case false:
-                if (balloonDelay > 0.75f)
+                if (balloonDelay > 1f)
                 {
-                    balloonDelay = 0.75f;
+                    balloonDelay = 1f;
                 }
                 else
                 {
