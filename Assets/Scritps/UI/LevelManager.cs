@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadScene("Gameplay");
+        Debug.Log("tezzzz");
     }
 
     public void QuitButton() 
