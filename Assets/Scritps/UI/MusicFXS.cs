@@ -16,7 +16,6 @@ public class MusicFXS : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            //holaaaa
         }
     }
 

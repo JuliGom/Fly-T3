@@ -14,9 +14,6 @@ public class BalloonMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {

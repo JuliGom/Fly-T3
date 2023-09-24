@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d300fdfd0f36c2542b071a05fd3620fb
+guid: d53d3a85a449e80428f400c84e6f789d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,17 +100,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlataformaGrande_Tutorial_Parcial_Nieve_0
+      name: "nuevapira\xF1a1_0"
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 640
-        height: 176
+        x: 0
+        y: 48
+        width: 192
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7728ce96b76afc541a9f4aeb73c09180
-      internalID: 1205928426
+      spriteID: a682737c8285a4343803ad84e8a7154c
+      internalID: 1454729283
       vertices: []
       indices: 
       edges: []
@@ -135,8 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlataformaGrande_Tutorial_Parcial_Nieve_0: 1205928426
-      PlataformaGrande_Tutorial_Parcial_Nieve_1: -1801527838
+      "nuevapira\xF1a1_0": 1454729283
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
