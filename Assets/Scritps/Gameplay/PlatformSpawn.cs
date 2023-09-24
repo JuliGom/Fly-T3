@@ -20,7 +20,7 @@ public class PlatformSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnTimer = Random.Range(3f, 10f);
+        spawnTimer = Random.Range(5f, 15f);
     }
 
     void Update()

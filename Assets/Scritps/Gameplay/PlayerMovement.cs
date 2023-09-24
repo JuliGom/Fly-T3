@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     public int health;
     public Vector3 respawn;
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +24,16 @@ public class PlayerMovement : MonoBehaviour
         respawn = transform.position;
     }
 
+    private void Update()
+    {
+
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         var pos = transform.position;
-        pos.x = Mathf.Clamp(transform.position.x, -5.5f, 5.5f);
+        pos.x = Mathf.Clamp(transform.position.x, -6.5f, 6.5f);
         transform.position = pos;
 
         if (GetComponent<BalloonMovement>().isGrounded == false)
@@ -60,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Prick")
         {
             health -= 1;
+            anim.SetBool("2Balloons", false);
 
             if (health == 2)
             {
@@ -90,6 +97,22 @@ public class PlayerMovement : MonoBehaviour
         {
             respawn = collision.transform.position;
             collision.GetComponent<Animator>().SetBool("isPointed", true);
+        }
+
+        if (collision.gameObject.tag == "Yellow")
+        {
+            anim.SetBool("2Balloons", true);
+            //GetComponent<SpriteRenderer>().sprite = twoballoonsping;
+            //GameObject.Find("Balloon").transform.position = new Vector3(0, 0, 0);
+            Destroy(collision.gameObject);
+        }            
+        
+        if (collision.gameObject.tag == "Green")
+        {
+            anim.SetBool("3Balloons", true);
+            //GetComponent<SpriteRenderer>().sprite = twoballoonsping;
+            //GameObject.Find("Balloon").transform.position = new Vector3(0, 0, 0);
+            Destroy(collision.gameObject);
         }
     }
 }
