@@ -102,7 +102,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Plataforma_Tutorial_Chica_84x48_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 498
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06998cfb101f08d4893618d9b3d88a1d
+      internalID: 1719672138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -113,7 +134,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Plataforma_Tutorial_Chica_84x48_0: -1176520298
+      Plataforma_Tutorial_Chica_84x48_1: 1920436944
+      Plataforma_Tutorial_Chica_84x48_3: 1719672138
+      Plataforma_Tutorial_Chica_84x48_2: 1279041554
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

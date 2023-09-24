@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         var pos = transform.position;
-        pos.x = Mathf.Clamp(transform.position.x, -4.5f, 4.5f);
+        pos.x = Mathf.Clamp(transform.position.x, -5.5f, 5.5f);
         transform.position = pos;
 
         if (GetComponent<BalloonMovement>().isGrounded == false)
