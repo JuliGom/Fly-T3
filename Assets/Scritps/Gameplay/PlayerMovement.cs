@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     public int health;
-    Vector3 respawn;
+    public Vector3 respawn;
     
     // Start is called before the first frame update
     void Start()
