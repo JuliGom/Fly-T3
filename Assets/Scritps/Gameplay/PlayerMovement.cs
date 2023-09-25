@@ -85,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (health == 0)
                     {
+                        GameObject.Find("Player").GetComponent<PlayerMovement>().has2Balloon = false;
+                        GameObject.Find("Player").GetComponent<Animator>().SetBool("2Balloons", false);
+
+                        GameObject.Find("Player").GetComponent<PlayerMovement>().has3Balloon = false;
+                        GameObject.Find("Player").GetComponent<Animator>().SetBool("3Balloons", false);
+
                         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     }
                 }
