@@ -11,17 +11,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class LevelManager : MonoBehaviour
 {
+    IEnumerator MiCorrutina()
+    {
+        yield return new WaitForSeconds(23f); 
+        SceneManager.LoadScene("Gameplay"); 
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+
         Time.timeScale = 1;
 
         if (SceneManager.GetActiveScene().name == "Gameplay")
         {
             GameObject.Find("Options").GetComponent<Canvas>().enabled = false;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Cinematica")
+        {
+            StartCoroutine(MiCorrutina());
         }
     }
 
@@ -33,10 +46,10 @@ public class LevelManager : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Cinematica");
     }
 
-    public void QuitButton() 
+    public void QuitButton()
     {
         Application.Quit();
     }
@@ -88,4 +101,5 @@ public class LevelManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
 }

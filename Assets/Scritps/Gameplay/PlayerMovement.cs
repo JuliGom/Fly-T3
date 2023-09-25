@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     public int health;
     public Vector3 respawn;
+    public bool has2Balloon;
+    public bool has3Balloon;
 
 
     // Start is called before the first frame update
@@ -66,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Prick")
         {
             health -= 1;
-            anim.SetBool("2Balloons", false);
 
             if (health == 2)
             {
@@ -101,18 +102,28 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Yellow")
         {
+            has2Balloon = true;
+            has3Balloon = false;
             anim.SetBool("2Balloons", true);
-            //GetComponent<SpriteRenderer>().sprite = twoballoonsping;
-            //GameObject.Find("Balloon").transform.position = new Vector3(0, 0, 0);
             Destroy(collision.gameObject);
-        }            
-        
+        }
+
         if (collision.gameObject.tag == "Green")
         {
-            anim.SetBool("3Balloons", true);
-            //GetComponent<SpriteRenderer>().sprite = twoballoonsping;
-            //GameObject.Find("Balloon").transform.position = new Vector3(0, 0, 0);
-            Destroy(collision.gameObject);
+            if (has2Balloon == true)
+            {
+                anim.SetBool("3Balloons", true);
+                has2Balloon = false;
+                has3Balloon = true;
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                anim.SetBool("2Balloons", true);
+                has2Balloon = true;
+                has3Balloon = false;
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
