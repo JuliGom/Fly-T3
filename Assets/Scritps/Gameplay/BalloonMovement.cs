@@ -25,7 +25,7 @@ public class BalloonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.6f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.6f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);      
 
         if (Input.GetButtonDown("Jump"))
         {

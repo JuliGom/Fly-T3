@@ -20,10 +20,36 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator DeadAnimation()
     {
         anim.SetBool("IsDead", true);
+
+        if (has2Balloon == true)
+        {
+            GameObject.Find("Balloon").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("Balloon").GetComponent<Animator>().SetBool("Yellowpop", true);
+        }
+        else
+        {
+            if (has3Balloon == true)
+            {
+                GameObject.Find("Balloon").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("Balloon").GetComponent<Animator>().SetBool("Greenpop", true);
+            }
+            else
+            {
+                GameObject.Find("Balloon").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("Balloon").GetComponent<Animator>().SetBool("Redpop", true);
+            }
+        }
+
         GetComponent<CapsuleCollider2D>().enabled = false;
         GameObject.Find("Balloon").GetComponent<CapsuleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(1.25f);
+        //yield return new WaitForSeconds(0.25f);
+        //GameObject.Find("Balloon").GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1f);
         anim.SetBool("IsDead", false);
+        GameObject.Find("Balloon").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("Balloon").GetComponent<Animator>().SetBool("Redpop", false);
+        GameObject.Find("Balloon").GetComponent<Animator>().SetBool("Yellowpop", false);
+        GameObject.Find("Balloon").GetComponent<Animator>().SetBool("Greenpop", false);
         GetComponent<CapsuleCollider2D>().enabled = true;
         GameObject.Find("Balloon").GetComponent<CapsuleCollider2D>().enabled = true;
         transform.position = respawn;
@@ -83,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
         {
             health -= 1;
 
+            GameObject.Find("Balloonpopp").GetComponent<AudioSource>().Play();
+
             if (health == 2)
             {
                 GameObject.Find("Heart3").SetActive(false);
@@ -137,16 +165,27 @@ public class PlayerMovement : MonoBehaviour
 
                     has3Balloon = false;
                     anim.SetBool("3Balloons", false);
+
                 }
             }
 
         }
+
+        if (collision.gameObject.layer == 6)
+        {
+            GameObject.Find("Jump").GetComponent<AudioSource>().Play();
+        }
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Checkpoint")
         {
+            GameObject.Find("Checkpoint").GetComponent<AudioSource>().Play();
+
+            collision.GetComponent<BoxCollider2D>().enabled = false;
+
             respawn = collision.transform.position;
             collision.GetComponent<Animator>().SetBool("isPointed", true);
         }
@@ -156,6 +195,8 @@ public class PlayerMovement : MonoBehaviour
             has2Balloon = true;
             has3Balloon = false;
             anim.SetBool("2Balloons", true);
+            GameObject.Find("PickBalloon").GetComponent<AudioSource>().Play();
+
             Destroy(collision.gameObject);
         }
 
@@ -163,9 +204,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (has2Balloon == true)
             {
-                anim.SetBool("3Balloons", true);
                 has2Balloon = false;
                 has3Balloon = true;
+                anim.SetBool("3Balloons", true);
+                GameObject.Find("PickBalloon").GetComponent<AudioSource>().Play();
+
                 Destroy(collision.gameObject);
             }
             else

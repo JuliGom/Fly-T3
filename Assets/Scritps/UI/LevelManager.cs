@@ -24,7 +24,6 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Time.timeScale = 1;
 
         if (SceneManager.GetActiveScene().name == "Gameplay")
@@ -41,7 +40,17 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (SceneManager.GetActiveScene().name == "Gameplay")
+        {
+            if (GameObject.Find("PopupBackground").GetComponent<Image>().enabled == true)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
     }
 
     public void PlayButton()
@@ -108,4 +117,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void TutorialMessage()
+    {
+        GameObject.Find("PopupBackground").GetComponent<Image>().enabled = false;
+        GameObject.Find("Message").SetActive(false);
+    }
 }
