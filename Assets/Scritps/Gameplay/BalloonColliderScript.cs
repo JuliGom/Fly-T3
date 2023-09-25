@@ -1,9 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BalloonColliderScript : MonoBehaviour
-{
+{   
+    IEnumerator DeadAnimation()
+    {
+        GameObject.Find("Player").GetComponent<Animator>().SetBool("IsDead", true);
+        GameObject.Find("Player").GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(1.25f);
+        GameObject.Find("Player").GetComponent<Animator>().SetBool("IsDead", false);
+        GameObject.Find("Player").GetComponent<CapsuleCollider2D>().enabled = true;
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerMovement>().respawn;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +33,32 @@ public class BalloonColliderScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Prick")
         {
+
+            GameObject.Find("Player").GetComponent<PlayerMovement>().health -= 1;
+
+            if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 2)
+            {
+                GameObject.Find("Heart3").SetActive(false);
+                //GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerMovement>().respawn;
+            }
+            else
+            {
+                if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 1)
+                {
+                    GameObject.Find("Heart2").SetActive(false);
+                    //GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerMovement>().respawn;
+                }
+                else
+                {
+                    if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 0)
+                    {
+                        SceneManager.LoadScene("LoseResult");
+                    }
+                }
+            }
+
+            StartCoroutine(DeadAnimation());
+
             if (GameObject.Find ("Player").GetComponent<PlayerMovement>().has2Balloon == true)
             {
                 GameObject.Find("Player").GetComponent<Animator>().SetBool("2Balloons", false);
@@ -45,7 +84,6 @@ public class BalloonColliderScript : MonoBehaviour
 
                     GameObject.Find("Player").GetComponent<PlayerMovement>().has3Balloon = false;
                     GameObject.Find("Player").GetComponent<Animator>().SetBool("3Balloons", false);
-
                 }
             }
         }

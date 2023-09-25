@@ -17,6 +17,18 @@ public class PlayerMovement : MonoBehaviour
     public bool has3Balloon;
 
 
+    IEnumerator DeadAnimation()
+    {
+        anim.SetBool("IsDead", true);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GameObject.Find("Balloon").GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(1.25f);
+        anim.SetBool("IsDead", false);
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        GameObject.Find("Balloon").GetComponent<CapsuleCollider2D>().enabled = true;
+        transform.position = respawn;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,12 +59,14 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetAxis("Horizontal") < 0)
             {
                 anim.SetBool("GoRight", true);
+                anim.SetBool("GoLeft", false);
             }
             else
             {
                 if(Input.GetAxis("Horizontal") > 0)
                 {
                     anim.SetBool("GoLeft", true);
+                    anim.SetBool("GoRight", false);
                 }
             }
         }
@@ -72,29 +86,60 @@ public class PlayerMovement : MonoBehaviour
             if (health == 2)
             {
                 GameObject.Find("Heart3").SetActive(false);
-                transform.position = respawn;
+                StartCoroutine(DeadAnimation());
+                //transform.position = respawn;
             }
             else
             {
                 if (health == 1)
                 {
                     GameObject.Find("Heart2").SetActive(false);
-                    transform.position = respawn;
+                    StartCoroutine(DeadAnimation());
+                    //transform.position = respawn;
                 }
                 else
                 {
                     if (health == 0)
                     {
-                        GameObject.Find("Player").GetComponent<PlayerMovement>().has2Balloon = false;
-                        GameObject.Find("Player").GetComponent<Animator>().SetBool("2Balloons", false);
+                        has2Balloon = false;
+                        anim.SetBool("2Balloons", false);
 
-                        GameObject.Find("Player").GetComponent<PlayerMovement>().has3Balloon = false;
-                        GameObject.Find("Player").GetComponent<Animator>().SetBool("3Balloons", false);
-
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                        has3Balloon = false;
+                        anim.SetBool("3Balloons", false);
+                        
+                        SceneManager.LoadScene("LoseResult");
                     }
                 }
             }
+
+            if (has2Balloon == true)
+            {
+                anim.SetBool("2Balloons", false);
+                has2Balloon = false;
+
+                has3Balloon = false;
+                anim.SetBool("3Balloons", false);
+            }
+            else
+            {
+                if (has3Balloon == true)
+                {
+                    anim.SetBool("3Balloons", false);
+                    has3Balloon = false;
+
+                    anim.SetBool("2Balloons", true);
+                    has2Balloon = true;
+                }
+                else
+                {
+                    has2Balloon = false;
+                    anim.SetBool("2Balloons", false);
+
+                    has3Balloon = false;
+                    anim.SetBool("3Balloons", false);
+                }
+            }
+
         }
     }
 
@@ -130,6 +175,11 @@ public class PlayerMovement : MonoBehaviour
                 has3Balloon = false;
                 Destroy(collision.gameObject);
             }
+        }
+
+        if (collision.gameObject.tag == "Finaldoor")
+        {
+            SceneManager.LoadScene("WinResult");
         }
     }
 }

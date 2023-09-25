@@ -49,6 +49,12 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Cinematica");
     }
 
+    public void PlayAgainButton()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
+
+
     public void QuitButton()
     {
         Application.Quit();
