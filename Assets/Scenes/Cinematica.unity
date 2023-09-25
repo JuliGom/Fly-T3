@@ -268,9 +268,10 @@ GameObject:
   - component: {fileID: 1243438794}
   - component: {fileID: 1243438793}
   - component: {fileID: 1243438795}
+  - component: {fileID: 1243438796}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: VideoPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +351,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243438792}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c049d879cc6ce634cadf1eb06b5b8593, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: a941d2836dbf998448104bff0b4f2da6, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -360,14 +361,14 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 3
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: "file://C:/Users/Juli\xE1n/Desktop/Fly-Cinematica.mp4"
+  m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -377,6 +378,18 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &1243438796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243438792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d941ebf18e545940b297c9ca5e02546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1752909437
 GameObject:
   m_ObjectHideFlags: 0

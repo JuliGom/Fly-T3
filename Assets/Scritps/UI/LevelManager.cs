@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 {
     IEnumerator MiCorrutina()
     {
-        yield return new WaitForSeconds(23f); 
+        yield return new WaitForSeconds(25f); 
         SceneManager.LoadScene("Gameplay"); 
     }
 
