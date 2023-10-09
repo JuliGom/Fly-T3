@@ -40,15 +40,22 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Debug.Log(Time.timeScale);
+
         if (SceneManager.GetActiveScene().name == "Gameplay")
         {
             if (GameObject.Find("PopupBackground").GetComponent<Image>().enabled == true)
             {
                 Time.timeScale = 0;
             }
-            else
+        }
+
+        if (SceneManager.GetActiveScene().name == "Cinematica")
+        {
+            if (Input.GetKeyDown("space"))
             {
-                Time.timeScale = 1;
+                SceneManager.LoadScene("Gameplay");
             }
         }
     }
@@ -121,5 +128,6 @@ public class LevelManager : MonoBehaviour
     {
         GameObject.Find("PopupBackground").GetComponent<Image>().enabled = false;
         GameObject.Find("Message").SetActive(false);
+        Time.timeScale = 1;
     }
 }

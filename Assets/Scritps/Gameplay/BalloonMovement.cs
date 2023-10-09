@@ -58,7 +58,7 @@ public class BalloonMovement : MonoBehaviour
                 {
                     if (isGrounded == true)
                     {
-                        balloonDelay += Time.deltaTime * 2;
+                        balloonDelay += Time.deltaTime * 10;
                     }
                 }
                 if (balloonDelay < 0)
