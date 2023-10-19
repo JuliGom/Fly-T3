@@ -43,13 +43,13 @@ public class LevelManager : MonoBehaviour
 
         //Debug.Log(Time.timeScale);
 
-        if (SceneManager.GetActiveScene().name == "Gameplay")
+        /*if (SceneManager.GetActiveScene().name == "Gameplay")
         {
             if (GameObject.Find("PopupBackground").GetComponent<Image>().enabled == true)
             {
                 Time.timeScale = 0;
             }
-        }
+        }*/
 
         if (SceneManager.GetActiveScene().name == "Cinematica")
         {

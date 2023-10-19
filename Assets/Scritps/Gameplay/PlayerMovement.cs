@@ -17,6 +17,13 @@ public class PlayerMovement : MonoBehaviour
     public bool has3Balloon;
 
 
+    IEnumerator BonusGameplayLoad()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Bonus");
+    }
+
+
     IEnumerator DeadAnimation()
     {
         anim.SetBool("IsDead", true);
@@ -208,8 +215,9 @@ public class PlayerMovement : MonoBehaviour
                 has3Balloon = true;
                 anim.SetBool("3Balloons", true);
                 GameObject.Find("PickBalloon").GetComponent<AudioSource>().Play();
-
                 Destroy(collision.gameObject);
+
+                StartCoroutine(BonusGameplayLoad());
             }
             else
             {

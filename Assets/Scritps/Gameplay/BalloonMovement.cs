@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BalloonMovement : MonoBehaviour
 {
@@ -56,10 +57,23 @@ public class BalloonMovement : MonoBehaviour
                 }
                 else
                 {
-                    if (isGrounded == true)
+                    if (SceneManager.GetActiveScene().name == "Bonus")
                     {
                         balloonDelay += Time.deltaTime * 10;
                     }
+                    else
+                    {
+                        if (isGrounded == true)
+                        {
+                            balloonDelay += Time.deltaTime * 10;
+                        }
+                    }
+
+                    /*if (isGrounded == true)
+                    {
+                        balloonDelay += Time.deltaTime * 10;
+                    }*/
+
                 }
                 if (balloonDelay < 0)
                 {

@@ -10,6 +10,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;   */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlatformSpawn : MonoBehaviour
 {
@@ -20,7 +21,14 @@ public class PlatformSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnTimer = Random.Range(5f, 15f);
+        if (SceneManager.GetActiveScene().name == "Bonus")
+        {
+            spawnTimer = Random.Range(1f, 3f);
+        }
+        else
+        {
+            spawnTimer = Random.Range(5f, 15f);
+        }
     }
 
     void Update()
@@ -38,8 +46,19 @@ public class PlatformSpawn : MonoBehaviour
             {
                 spawnRotation *= Quaternion.Euler(180, 0, 180); 
             }
+
             GameObject spawnedEnemy = Instantiate(enemy, spawnPosition, spawnRotation);
-            spawnTimer = Random.Range(3f, 10f);
+
+            if (SceneManager.GetActiveScene().name == "Bonus")
+            {
+                spawnTimer = Random.Range(1f, 3f);
+            }
+            else
+            {
+                spawnTimer = Random.Range(5f, 15f);
+            }
+
+            //spawnTimer = Random.Range(3f, 10f);
         }
     }
 }
