@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class MusicFXS : MonoBehaviour
 {
     public static MusicFXS instance;
+
+    public Vector3 checkpoint;
 
     private void Awake()
     {
@@ -28,6 +32,9 @@ public class MusicFXS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene().name == "Gameplay")
+        {
+            checkpoint = GameObject.Find("Player").GetComponent<PlayerMovement>().respawn;
+        }
     }
 }

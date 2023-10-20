@@ -63,10 +63,17 @@ public class BalloonColliderScript : MonoBehaviour
 
             GameObject.Find("Balloonpopp").GetComponent<AudioSource>().Play();
 
+            if (SceneManager.GetActiveScene().name == "Bonus")
+            {
+                GameObject.Find("Player").GetComponent<PlayerMovement>().respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
+                SceneManager.LoadScene("Gameplay");
+            }
 
             if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 2)
             {
                 GameObject.Find("Heart3").SetActive(false);
+                StartCoroutine(DeadAnimation());
+
                 //GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerMovement>().respawn;
             }
             else
@@ -74,18 +81,28 @@ public class BalloonColliderScript : MonoBehaviour
                 if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 1)
                 {
                     GameObject.Find("Heart2").SetActive(false);
+                    StartCoroutine(DeadAnimation());
+
                     //GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerMovement>().respawn;
                 }
                 else
                 {
                     if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 0)
                     {
+                        GameObject.Find("Player").GetComponent<PlayerMovement>().has2Balloon = false;
+                        GameObject.Find("Player").GetComponent<Animator>().SetBool("2Balloons", false);
+
+                        GameObject.Find("Player").GetComponent<PlayerMovement>().has3Balloon = false;
+                        GameObject.Find("Player").GetComponent<Animator>().SetBool("3Balloons", false);
+
+                        //GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+
                         SceneManager.LoadScene("LoseResult");
                     }
                 }
             }
 
-            StartCoroutine(DeadAnimation());
+            //StartCoroutine(DeadAnimation());
 
             if (GameObject.Find ("Player").GetComponent<PlayerMovement>().has2Balloon == true)
             {

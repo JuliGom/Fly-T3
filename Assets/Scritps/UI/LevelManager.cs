@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        if (SceneManager.GetActiveScene().name == "Gameplay")
+        if (SceneManager.GetActiveScene().name == "Gameplay" || SceneManager.GetActiveScene().name == "Bonus")
         {
             GameObject.Find("Options").GetComponent<Canvas>().enabled = false;
         }
@@ -58,8 +58,16 @@ public class LevelManager : MonoBehaviour
                 SceneManager.LoadScene("Gameplay");
             }
         }
-    }
 
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            if (Input.GetKeyDown("1"))
+            {
+                SceneManager.LoadScene("Bonus");
+            }
+        }
+    }
+                                                                  
     public void PlayButton()
     {
         SceneManager.LoadScene("Cinematica");
@@ -67,6 +75,7 @@ public class LevelManager : MonoBehaviour
 
     public void PlayAgainButton()
     {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
         SceneManager.LoadScene("Gameplay");
     }
 

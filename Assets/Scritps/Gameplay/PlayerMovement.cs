@@ -68,7 +68,20 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         health = 3;
-        respawn = transform.position;
+        respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
+        //respawn = transform.position;
+
+        if (SceneManager.GetActiveScene().name == "Bonus")
+        {
+            has2Balloon = true;
+            anim.SetBool("2Balloons", true);
+            has3Balloon = true;
+            anim.SetBool("3Balloons", true);
+        }
+        else
+        {
+            transform.position = respawn;
+        }
     }
 
     private void Update()
@@ -118,6 +131,12 @@ public class PlayerMovement : MonoBehaviour
 
             GameObject.Find("Balloonpopp").GetComponent<AudioSource>().Play();
 
+            if (SceneManager.GetActiveScene().name == "Bonus")
+            {
+                respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
+                SceneManager.LoadScene("Gameplay");
+            }
+
             if (health == 2)
             {
                 GameObject.Find("Heart3").SetActive(false);
@@ -141,7 +160,9 @@ public class PlayerMovement : MonoBehaviour
 
                         has3Balloon = false;
                         anim.SetBool("3Balloons", false);
-                        
+
+                        //GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+
                         SceneManager.LoadScene("LoseResult");
                     }
                 }
