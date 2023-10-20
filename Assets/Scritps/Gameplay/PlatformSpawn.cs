@@ -23,7 +23,7 @@ public class PlatformSpawn : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Bonus")
         {
-            spawnTimer = Random.Range(1f, 3f);
+            spawnTimer = Random.Range(0.5f, 1.5f);
         }
         else
         {
@@ -51,7 +51,7 @@ public class PlatformSpawn : MonoBehaviour
 
             if (SceneManager.GetActiveScene().name == "Bonus")
             {
-                spawnTimer = Random.Range(1f, 3f);
+                spawnTimer = Random.Range(0.5f, 1.5f);
             }
             else
             {

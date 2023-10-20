@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Bonus")
         {
             //transform.Rotate(0, 0, 45);
-            transform.Rotate(0, 0, Random.Range(20, 70));
+            transform.Rotate(0, 0, Random.Range(-70, 70));
         }
     }
 
@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Bonus")
         {
-            transform.Translate(Vector2.left * 10f * Time.deltaTime);
+            transform.Translate(Vector2.left * 12f * Time.deltaTime);
             Destroy(gameObject, 3f);
         }
         else
