@@ -20,7 +20,35 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator BonusGameplayLoad()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Bonus");
+        if (SceneManager.GetActiveScene().name == "Gameplay")
+        {
+            SceneManager.LoadScene("Bonus");
+        }
+        else
+        {
+            if (SceneManager.GetActiveScene().name == "Gameplay2")
+            {
+                SceneManager.LoadScene("Bonus2");
+            }
+            else
+            {
+                if (SceneManager.GetActiveScene().name == "Gameplay3")
+                {
+                    SceneManager.LoadScene("Bonus3");
+                }
+                else
+                {
+                    if (SceneManager.GetActiveScene().name == "Gameplay4")
+                    {
+                        SceneManager.LoadScene("Bonus4");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Bonus5");
+                    }
+                }
+            }
+        }
     }
 
 
@@ -49,8 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
         GetComponent<CapsuleCollider2D>().enabled = false;
         GameObject.Find("Balloon").GetComponent<CapsuleCollider2D>().enabled = false;
-        //yield return new WaitForSeconds(0.25f);
-        //GameObject.Find("Balloon").GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1f);
         anim.SetBool("IsDead", false);
         GameObject.Find("Balloon").GetComponent<SpriteRenderer>().enabled = false;
@@ -69,9 +95,8 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         health = 3;
         respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
-        //respawn = transform.position;
 
-        if (SceneManager.GetActiveScene().name == "Bonus")
+        if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
         {
             has2Balloon = true;
             anim.SetBool("2Balloons", true);
@@ -131,11 +156,40 @@ public class PlayerMovement : MonoBehaviour
 
             GameObject.Find("Balloonpopp").GetComponent<AudioSource>().Play();
 
-            if (SceneManager.GetActiveScene().name == "Bonus")
-            {
+            //if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
+            //{
                 respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
-                SceneManager.LoadScene("Gameplay");
-            }
+                
+                if (SceneManager.GetActiveScene().name == "Bonus")
+                {
+                    SceneManager.LoadScene("Gameplay");
+                }
+                else
+                {
+                    if (SceneManager.GetActiveScene().name == "Bonus2")
+                    {
+                        SceneManager.LoadScene("Gameplay2");
+                    }
+                    else
+                    {
+                        if (SceneManager.GetActiveScene().name == "Bonus3")
+                        {
+                            SceneManager.LoadScene("Gameplay3");
+                        }
+                        else
+                        {
+                            if (SceneManager.GetActiveScene().name == "Bonus4")
+                            {
+                                SceneManager.LoadScene("Gameplay4");
+                            }
+                            else
+                            {
+                                SceneManager.LoadScene("Gameplay5");
+                            }
+                        }
+                    }
+                }
+            //}
 
             if (health == 2)
             {

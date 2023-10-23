@@ -21,7 +21,7 @@ public class PlatformSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Bonus")
+        if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
         {
             spawnTimer = Random.Range(0.5f, 1.5f);
         }
@@ -49,7 +49,7 @@ public class PlatformSpawn : MonoBehaviour
 
             GameObject spawnedEnemy = Instantiate(enemy, spawnPosition, spawnRotation);
 
-            if (SceneManager.GetActiveScene().name == "Bonus")
+            if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
             {
                 spawnTimer = Random.Range(0.5f, 1.5f);
             }

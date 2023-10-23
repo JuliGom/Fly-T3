@@ -21,12 +21,26 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Gameplay"); 
     }
 
+    /*private void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        PlayerPrefs.SetString("_last_scene_", scene.name);
+    }
+
+    public static void LoadLastScene()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetString("_last_scene_"));
+    }*/
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
 
-        if (SceneManager.GetActiveScene().name == "Gameplay" || SceneManager.GetActiveScene().name == "Bonus")
+        if (SceneManager.GetActiveScene().name == "Gameplay" || SceneManager.GetActiveScene().name == "Gameplay2" || SceneManager.GetActiveScene().name == "Gameplay3" || SceneManager.GetActiveScene().name == "Gameplay4" || SceneManager.GetActiveScene().name == "Gameplay5" || SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
         {
             GameObject.Find("Options").GetComponent<Canvas>().enabled = false;
         }
@@ -40,6 +54,22 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Gameplay" || SceneManager.GetActiveScene().name == "Gameplay2" || SceneManager.GetActiveScene().name == "Gameplay3" || SceneManager.GetActiveScene().name == "Gameplay4" || SceneManager.GetActiveScene().name == "Gameplay5")
+        {
+            if (Input.GetKeyDown("escape"))
+            {
+                if (Time.timeScale == 0)
+                {
+                    GameObject.Find("Options").GetComponent<Canvas>().enabled = false;
+                    Time.timeScale = 1;
+                }
+                else
+                {
+                    GameObject.Find("Options").GetComponent<Canvas>().enabled = true;
+                    Time.timeScale = 0;
+                }
+            }
+        }
 
         //Debug.Log(Time.timeScale);
 
@@ -53,8 +83,8 @@ public class LevelManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Cinematica")
         {
-            if (Input.GetKeyDown("space"))
-            {
+            if (Input.GetKeyDown("space") || Input.GetKeyDown("escape"))
+            { 
                 SceneManager.LoadScene("Gameplay");
             }
         }
@@ -76,7 +106,7 @@ public class LevelManager : MonoBehaviour
     public void PlayAgainButton()
     {
         GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Map");
     }
 
 
@@ -138,5 +168,30 @@ public class LevelManager : MonoBehaviour
         GameObject.Find("PopupBackground").GetComponent<Image>().enabled = false;
         GameObject.Find("Message").SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void PlayGameplay()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
+
+    public void PlayGameplay2()
+    {
+        SceneManager.LoadScene("Gameplay2");
+    }      
+    
+    public void PlayGameplay3()
+    {
+        SceneManager.LoadScene("Gameplay3");
+    }
+
+    public void PlayGameplay4()
+    {
+        SceneManager.LoadScene("Gameplay4");
+    }
+
+    public void PlayGameplay5()
+    {
+        SceneManager.LoadScene("Gameplay5");
     }
 }

@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 679739416}
   - component: {fileID: 679739415}
   - component: {fileID: 679739417}
+  - component: {fileID: 679739418}
   m_Layer: 0
   m_Name: MusicFXS
   m_TagString: Untagged
@@ -622,6 +623,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &679739418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679739414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1035bbc09b63d7845b1bf5de942c62bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &961885652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,7 +1373,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 2144586591}
   m_OnClick:
     m_PersistentCalls:

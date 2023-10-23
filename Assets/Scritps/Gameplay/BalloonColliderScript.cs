@@ -30,8 +30,6 @@ public class BalloonColliderScript : MonoBehaviour
 
         GameObject.Find("Player").GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
-        //yield return new WaitForSeconds(0.25f);
-        //GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1f);
         GameObject.Find("Player").GetComponent<Animator>().SetBool("IsDead", false);
         GetComponent<SpriteRenderer>().enabled = false;
@@ -63,11 +61,44 @@ public class BalloonColliderScript : MonoBehaviour
 
             GameObject.Find("Balloonpopp").GetComponent<AudioSource>().Play();
 
-            if (SceneManager.GetActiveScene().name == "Bonus")
+            /*if (SceneManager.GetActiveScene().name == "Bonus")
             {
                 GameObject.Find("Player").GetComponent<PlayerMovement>().respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
                 SceneManager.LoadScene("Gameplay");
+            } */
+
+            GameObject.Find("Player").GetComponent<PlayerMovement>().respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
+
+            if (SceneManager.GetActiveScene().name == "Bonus")
+            {
+                SceneManager.LoadScene("Gameplay");
             }
+            else
+            {
+                if (SceneManager.GetActiveScene().name == "Bonus2")
+                {
+                    SceneManager.LoadScene("Gameplay2");
+                }
+                else
+                {
+                    if (SceneManager.GetActiveScene().name == "Bonus3")
+                    {
+                        SceneManager.LoadScene("Gameplay3");
+                    }
+                    else
+                    {
+                        if (SceneManager.GetActiveScene().name == "Bonus4")
+                        {
+                            SceneManager.LoadScene("Gameplay4");
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("Gameplay5");
+                        }
+                    }
+                }
+            }
+
 
             if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 2)
             {

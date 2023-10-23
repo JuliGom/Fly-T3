@@ -22,7 +22,7 @@ public class BalloonMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         balloonDelay = 1f;
 
-        if (SceneManager.GetActiveScene().name == "Bonus")
+        if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
         {
             rb.gravityScale = 0f;
         }
@@ -63,7 +63,7 @@ public class BalloonMovement : MonoBehaviour
                 }
                 else
                 {
-                    if (SceneManager.GetActiveScene().name == "Bonus")
+                    if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
                     {
                         balloonDelay += Time.deltaTime * 5;
                     }

@@ -9,9 +9,8 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Bonus")
+        if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
         {
-            //transform.Rotate(0, 0, 45);
             transform.Rotate(0, 0, Random.Range(-70, 70));
         }
     }
@@ -19,10 +18,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Bonus")
+        if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
         {
             transform.Translate(Vector2.left * 12f * Time.deltaTime);
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 2f);
         }
         else
         {

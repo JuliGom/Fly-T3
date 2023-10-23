@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Gameplay2.unity
+    guid: 2c33d224b91d08c4488b66ce5158fe7d
+  - enabled: 1
     path: Assets/Scenes/OptionsMenu.unity
     guid: b03de126711fa1246b9513effda88632
   - enabled: 1
@@ -29,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bonus.unity
     guid: bb1fc72cc5d481f4a98b85e33de1f029
+  - enabled: 1
+    path: Assets/Scenes/Bonus2.unity
+    guid: 7ca1615080e8213429914e85641ae519
   m_configObjects: {}
