@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
 {
     IEnumerator MiCorrutina()
     {
-        yield return new WaitForSeconds(25f); 
-        SceneManager.LoadScene("Gameplay"); 
+        yield return new WaitForSeconds(25f);
+        SceneManager.LoadScene("Gameplay");
     }
 
     /*private void Awake()
@@ -54,23 +54,6 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Gameplay" || SceneManager.GetActiveScene().name == "Gameplay2" || SceneManager.GetActiveScene().name == "Gameplay3" || SceneManager.GetActiveScene().name == "Gameplay4" || SceneManager.GetActiveScene().name == "Gameplay5")
-        {
-            if (Input.GetKeyDown("escape"))
-            {
-                if (Time.timeScale == 0)
-                {
-                    GameObject.Find("Options").GetComponent<Canvas>().enabled = false;
-                    Time.timeScale = 1;
-                }
-                else
-                {
-                    GameObject.Find("Options").GetComponent<Canvas>().enabled = true;
-                    Time.timeScale = 0;
-                }
-            }
-        }
-
         //Debug.Log(Time.timeScale);
 
         /*if (SceneManager.GetActiveScene().name == "Gameplay")
@@ -83,8 +66,8 @@ public class LevelManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Cinematica")
         {
-            if (Input.GetKeyDown("space") || Input.GetKeyDown("escape"))
-            { 
+            if (Input.GetKeyDown("space") || Input.GetKeyDown(KeyCode.Escape))
+            {
                 SceneManager.LoadScene("Gameplay");
             }
         }
@@ -93,11 +76,23 @@ public class LevelManager : MonoBehaviour
         {
             if (Input.GetKeyDown("1"))
             {
+                SceneManager.LoadScene("Gameplay");
+            }
+            if (Input.GetKeyDown("2"))
+            {
+                SceneManager.LoadScene("Gameplay2");
+            }
+            if (Input.GetKeyDown("3"))
+            {
                 SceneManager.LoadScene("Bonus");
+            }
+            if (Input.GetKeyDown("4"))
+            {
+                SceneManager.LoadScene("Bonus2");
             }
         }
     }
-                                                                  
+
     public void PlayButton()
     {
         SceneManager.LoadScene("Cinematica");
@@ -178,8 +173,8 @@ public class LevelManager : MonoBehaviour
     public void PlayGameplay2()
     {
         SceneManager.LoadScene("Gameplay2");
-    }      
-    
+    }
+
     public void PlayGameplay3()
     {
         SceneManager.LoadScene("Gameplay3");
