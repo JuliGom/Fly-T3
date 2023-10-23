@@ -18,6 +18,11 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.gameObject.name == "Enemy2")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+
         if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
         {
             transform.Translate(Vector2.left * 12f * Time.deltaTime);
