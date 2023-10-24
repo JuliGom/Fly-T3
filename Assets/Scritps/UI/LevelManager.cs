@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        /*if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             if (Input.GetKeyDown("1"))
             {
@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
             {
                 SceneManager.LoadScene("Bonus2");
             }
-        }
+        } */
     }
 
     public void PlayButton()

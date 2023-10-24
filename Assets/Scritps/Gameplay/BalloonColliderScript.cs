@@ -69,40 +69,6 @@ public class BalloonColliderScript : MonoBehaviour
 
             GameObject.Find("Player").GetComponent<PlayerMovement>().respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
 
-            if (SceneManager.GetActiveScene().name == "Bonus")
-            {
-                SceneManager.LoadScene("Gameplay");
-            }
-            else
-            {
-                if (SceneManager.GetActiveScene().name == "Bonus2")
-                {
-                    SceneManager.LoadScene("Gameplay2");
-                }
-                else
-                {
-                    if (SceneManager.GetActiveScene().name == "Bonus3")
-                    {
-                        SceneManager.LoadScene("Gameplay3");
-                    }
-                    else
-                    {
-                        if (SceneManager.GetActiveScene().name == "Bonus4")
-                        {
-                            SceneManager.LoadScene("Gameplay4");
-                        }
-                        else
-                        {
-                            if (SceneManager.GetActiveScene().name == "Bonus5")
-                            {
-                                SceneManager.LoadScene("Gameplay5");
-                            }
-                        }
-                    }
-                }
-            }
-
-
             if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 2)
             {
                 GameObject.Find("Heart3").SetActive(false);
@@ -136,8 +102,6 @@ public class BalloonColliderScript : MonoBehaviour
                 }
             }
 
-            //StartCoroutine(DeadAnimation());
-
             if (GameObject.Find ("Player").GetComponent<PlayerMovement>().has2Balloon == true)
             {
                 GameObject.Find("Player").GetComponent<Animator>().SetBool("2Balloons", false);
@@ -163,6 +127,39 @@ public class BalloonColliderScript : MonoBehaviour
 
                     GameObject.Find("Player").GetComponent<PlayerMovement>().has3Balloon = false;
                     GameObject.Find("Player").GetComponent<Animator>().SetBool("3Balloons", false);
+                }
+            }
+
+            if (SceneManager.GetActiveScene().name == "Bonus")
+            {
+                SceneManager.LoadScene("Gameplay");
+            }
+            else
+            {
+                if (SceneManager.GetActiveScene().name == "Bonus2")
+                {
+                    SceneManager.LoadScene("Gameplay2");
+                }
+                else
+                {
+                    if (SceneManager.GetActiveScene().name == "Bonus3")
+                    {
+                        SceneManager.LoadScene("Gameplay3");
+                    }
+                    else
+                    {
+                        if (SceneManager.GetActiveScene().name == "Bonus4")
+                        {
+                            SceneManager.LoadScene("Gameplay4");
+                        }
+                        else
+                        {
+                            if (SceneManager.GetActiveScene().name == "Bonus5")
+                            {
+                                SceneManager.LoadScene("Gameplay5");
+                            }
+                        }
+                    }
                 }
             }
         }

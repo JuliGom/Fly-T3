@@ -8971,6 +8971,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpoint: {x: 0, y: 0, z: 0}
   countStar: 0
+  levelSaver: 0
+  levelPlayed: 0
 --- !u!4 &688469002
 Transform:
   m_ObjectHideFlags: 0
@@ -21972,7 +21974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee56d5c7b32bb0d489cfb988a6d5e6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 65
+  jumpForce: 1.3
   balloonOn: 0
   balloonDelay: 0
   isGrounded: 0

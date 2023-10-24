@@ -52,7 +52,7 @@ public class BalloonMovement : MonoBehaviour
                 if (balloonDelay > 0)
                 {
                     balloonDelay -= Time.deltaTime;
-                    rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Force);
+                    rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 }
                 break;
 
@@ -74,17 +74,11 @@ public class BalloonMovement : MonoBehaviour
                             balloonDelay += Time.deltaTime * 10;
                         }
                     }
-
-                    /*if (isGrounded == true)
-                    {
-                        balloonDelay += Time.deltaTime * 10;
-                    }*/
-
                 }
                 
                 if (balloonDelay < 0)
                 {
-                    rb.AddForce(new Vector2(0f, 0f), ForceMode2D.Force);
+                    rb.AddForce(new Vector2(0f, 0f), ForceMode2D.Impulse);
                 }
                 break;
         }

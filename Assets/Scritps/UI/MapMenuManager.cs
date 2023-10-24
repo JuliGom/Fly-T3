@@ -64,6 +64,8 @@ public class MapMenuManager : MonoBehaviour
 
     public void LoadLevel()
     {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+
         if (sceneIndexPlayed == 0)
         {
             SceneManager.LoadScene("Gameplay");

@@ -160,41 +160,9 @@ public class PlayerMovement : MonoBehaviour
 
             //if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
             //{
-                respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
+            
+            respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
                 
-                if (SceneManager.GetActiveScene().name == "Bonus")
-                {
-                    SceneManager.LoadScene("Gameplay");
-                }
-                else
-                {
-                    if (SceneManager.GetActiveScene().name == "Bonus2")
-                    {
-                        SceneManager.LoadScene("Gameplay2");
-                    }
-                    else
-                    {
-                        if (SceneManager.GetActiveScene().name == "Bonus3")
-                        {
-                            SceneManager.LoadScene("Gameplay3");
-                        }
-                        else
-                        {
-                            if (SceneManager.GetActiveScene().name == "Bonus4")
-                            {
-                                SceneManager.LoadScene("Gameplay4");
-                            }
-                            else
-                            {
-                                if (SceneManager.GetActiveScene().name == "Bonus5")
-                                {
-                                    SceneManager.LoadScene("Gameplay5");
-                                }
-                            }
-                        }
-                    }
-                }
-
             if (health == 2)
             {
                 GameObject.Find("Heart3").SetActive(false);
@@ -255,6 +223,38 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
+            if (SceneManager.GetActiveScene().name == "Bonus")
+            {
+                SceneManager.LoadScene("Gameplay");
+            }
+            else
+            {
+                if (SceneManager.GetActiveScene().name == "Bonus2")
+                {
+                    SceneManager.LoadScene("Gameplay2");
+                }
+                else
+                {
+                    if (SceneManager.GetActiveScene().name == "Bonus3")
+                    {
+                        SceneManager.LoadScene("Gameplay3");
+                    }
+                    else
+                    {
+                        if (SceneManager.GetActiveScene().name == "Bonus4")
+                        {
+                            SceneManager.LoadScene("Gameplay4");
+                        }
+                        else
+                        {
+                            if (SceneManager.GetActiveScene().name == "Bonus5")
+                            {
+                                SceneManager.LoadScene("Gameplay5");
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         if (collision.gameObject.layer == 6)
@@ -318,7 +318,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 GameObject.Find("MusicFXS").GetComponent<MusicFXS>().levelSaver = SceneManager.GetActiveScene().buildIndex;
-            }
+            } 
 
             SceneManager.LoadScene("WinResult");
         }
