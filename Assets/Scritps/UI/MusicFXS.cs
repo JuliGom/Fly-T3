@@ -10,6 +10,10 @@ public class MusicFXS : MonoBehaviour
 
     public Vector3 checkpoint;
 
+    public int countStar;
+    public int levelSaver;
+    public int levelPlayed;
+
     private void Awake()
     {
         if (instance == null)

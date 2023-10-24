@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 respawn;
     public bool has2Balloon;
     public bool has3Balloon;
-
 
     IEnumerator BonusGameplayLoad()
     {
@@ -106,6 +106,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             transform.position = respawn;
+            //GameObject.Find("MusicFXS").GetComponent<MusicFXS>().levelSaver = SceneManager.GetActiveScene().buildIndex;
+            GameObject.Find("MusicFXS").GetComponent<MusicFXS>().levelPlayed = SceneManager.GetActiveScene().buildIndex;
         }
     }
 
@@ -184,12 +186,14 @@ public class PlayerMovement : MonoBehaviour
                             }
                             else
                             {
-                                SceneManager.LoadScene("Gameplay5");
+                                if (SceneManager.GetActiveScene().name == "Bonus5")
+                                {
+                                    SceneManager.LoadScene("Gameplay5");
+                                }
                             }
                         }
                     }
                 }
-            //}
 
             if (health == 2)
             {
@@ -305,6 +309,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Finaldoor")
         {
+            GameObject.Find("MusicFXS").GetComponent<MusicFXS>().countStar = health;
+
+            if (SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "Bonus2" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus4" || SceneManager.GetActiveScene().name == "Bonus5")
+            {
+                GameObject.Find("MusicFXS").GetComponent<MusicFXS>().levelSaver = SceneManager.GetActiveScene().buildIndex - 5;
+            }
+            else
+            {
+                GameObject.Find("MusicFXS").GetComponent<MusicFXS>().levelSaver = SceneManager.GetActiveScene().buildIndex;
+            }
+
             SceneManager.LoadScene("WinResult");
         }
     }

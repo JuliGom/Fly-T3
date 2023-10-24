@@ -93,7 +93,10 @@ public class BalloonColliderScript : MonoBehaviour
                         }
                         else
                         {
-                            SceneManager.LoadScene("Gameplay5");
+                            if (SceneManager.GetActiveScene().name == "Bonus5")
+                            {
+                                SceneManager.LoadScene("Gameplay5");
+                            }
                         }
                     }
                 }

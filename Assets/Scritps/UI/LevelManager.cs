@@ -1,11 +1,3 @@
-/*using Microsoft.Unity.VisualStudio.Editor;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;    */
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,20 +12,6 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(25f);
         SceneManager.LoadScene("Gameplay");
     }
-
-    /*private void Awake()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        PlayerPrefs.SetString("_last_scene_", scene.name);
-    }
-
-    public static void LoadLastScene()
-    {
-        SceneManager.LoadScene(PlayerPrefs.GetString("_last_scene_"));
-    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -54,15 +32,6 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(Time.timeScale);
-
-        /*if (SceneManager.GetActiveScene().name == "Gameplay")
-        {
-            if (GameObject.Find("PopupBackground").GetComponent<Image>().enabled == true)
-            {
-                Time.timeScale = 0;
-            }
-        }*/
 
         if (SceneManager.GetActiveScene().name == "Cinematica")
         {
@@ -70,6 +39,7 @@ public class LevelManager : MonoBehaviour
             {
                 SceneManager.LoadScene("Gameplay");
             }
+
         }
 
         if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -163,30 +133,5 @@ public class LevelManager : MonoBehaviour
         GameObject.Find("PopupBackground").GetComponent<Image>().enabled = false;
         GameObject.Find("Message").SetActive(false);
         Time.timeScale = 1;
-    }
-
-    public void PlayGameplay()
-    {
-        SceneManager.LoadScene("Gameplay");
-    }
-
-    public void PlayGameplay2()
-    {
-        SceneManager.LoadScene("Gameplay2");
-    }
-
-    public void PlayGameplay3()
-    {
-        SceneManager.LoadScene("Gameplay3");
-    }
-
-    public void PlayGameplay4()
-    {
-        SceneManager.LoadScene("Gameplay4");
-    }
-
-    public void PlayGameplay5()
-    {
-        SceneManager.LoadScene("Gameplay5");
     }
 }

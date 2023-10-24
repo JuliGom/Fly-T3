@@ -15,12 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Map.unity
     guid: 0d0170e210e4f8c4ba44ed02c7b0f400
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Gameplay2.unity
-    guid: 2c33d224b91d08c4488b66ce5158fe7d
-  - enabled: 1
     path: Assets/Scenes/OptionsMenu.unity
     guid: b03de126711fa1246b9513effda88632
   - enabled: 1
@@ -30,9 +24,24 @@ EditorBuildSettings:
     path: Assets/Scenes/WinResult.unity
     guid: 85b2cf1f61267c54dbaebe5ded923fb3
   - enabled: 1
-    path: Assets/Scenes/Bonus.unity
+    path: Assets/Scenes/Levels/Gameplay.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Levels/Gameplay2.unity
+    guid: 2c33d224b91d08c4488b66ce5158fe7d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Gameplay3.unity
+    guid: befc0c25661e2fd4f8df860e37f8ec66
+  - enabled: 1
+    path: Assets/Scenes/Levels/Gameplay4.unity
+    guid: 8f52ca552bfcd8949a98432c91ecee7e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Gameplay5.unity
+    guid: 43d0d2c025b733b469f4c67b161d3f83
+  - enabled: 1
+    path: Assets/Scenes/Bonus/Bonus.unity
     guid: bb1fc72cc5d481f4a98b85e33de1f029
   - enabled: 1
-    path: Assets/Scenes/Bonus2.unity
+    path: Assets/Scenes/Bonus/Bonus2.unity
     guid: 7ca1615080e8213429914e85641ae519
   m_configObjects: {}
