@@ -49,6 +49,8 @@ public class Performance : MonoBehaviour
 
     public void NextLevel()
     {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+
         if (sceneBuildIndex == 10)
         {
             SceneManager.LoadScene("Map");
