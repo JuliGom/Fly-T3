@@ -57,8 +57,6 @@ public class PlatformSpawn : MonoBehaviour
             {
                 spawnTimer = Random.Range(5f, 15f);
             }
-
-            //spawnTimer = Random.Range(3f, 10f);
         }
     }
 }
