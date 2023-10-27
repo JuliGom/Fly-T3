@@ -272,7 +272,9 @@ public class PlayerMovement : MonoBehaviour
 
             collision.GetComponent<BoxCollider2D>().enabled = false;
 
-            respawn = collision.transform.position;
+            //respawn = transform.position;
+            respawn = collision.gameObject.transform.position;
+
             collision.GetComponent<Animator>().SetBool("isPointed", true);
         }
 

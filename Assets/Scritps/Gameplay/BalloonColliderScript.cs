@@ -67,7 +67,9 @@ public class BalloonColliderScript : MonoBehaviour
                 SceneManager.LoadScene("Gameplay");
             } */
 
+            
             GameObject.Find("Player").GetComponent<PlayerMovement>().respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
+            //GameObject.Find("Player").GetComponent<PlayerMovement>().respawn = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint;
 
             if (GameObject.Find("Player").GetComponent<PlayerMovement>().health == 2)
             {
