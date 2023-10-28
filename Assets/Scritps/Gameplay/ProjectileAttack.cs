@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProjectileAttack : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class ProjectileAttack : MonoBehaviour
 
     public void AttackMoment()
     {
+        if (SceneManager.GetActiveScene().name == "Gameplay3" || SceneManager.GetActiveScene().name == "Gameplay5" || SceneManager.GetActiveScene().name == "Bonus3" || SceneManager.GetActiveScene().name == "Bonus5")
+        {
+            GetComponent<AudioSource>().Play();
+        }
         Instantiate(Projectile, transform.position, Projectile.transform.rotation);
     }
 }

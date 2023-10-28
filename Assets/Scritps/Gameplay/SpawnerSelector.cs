@@ -8,7 +8,6 @@ public class SpawnerSelector : MonoBehaviour
     public float animationDelay;
     public int randomAnimator;
 
-    //public GameObject[] monkeySelector = new GameObject[2];
     public Animator[] monkeyAnimators = new Animator[2];
 
     // Start is called before the first frame update

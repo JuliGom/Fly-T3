@@ -1,4 +1,3 @@
-//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,17 +15,17 @@ public class MapMenuManager : MonoBehaviour
         sceneIndexPlayed = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().levelPlayed;
         sceneIndexWin = GameObject.Find("MusicFXS").GetComponent<MusicFXS>().levelSaver;
 
-        if (sceneIndexWin == sceneIndexPlayed)
+        /*if (sceneIndexWin == sceneIndexPlayed)
         {
             sceneIndexPlayed = sceneIndexPlayed + 1;
-        }
+        } */
 
-        if (sceneIndexWin == 10)
+        /*if (sceneIndexWin == 10)
         {
             sceneIndexPlayed = 0;
-        }
+        } */
 
-        switch (sceneIndexPlayed)
+        switch (sceneIndexWin)
         {
             case 0:
                 mapMenuButtons[0].interactable = true;
@@ -34,21 +33,35 @@ public class MapMenuManager : MonoBehaviour
                 break;
             case 6:
                 mapMenuButtons[0].interactable = true;
-                //Level 1 ON
-                break;
-            case 7:
                 mapMenuButtons[1].interactable = true;
                 //Level 2 ON
                 break;
-            case 8:
+            case 7:
+                mapMenuButtons[0].interactable = true;
+                mapMenuButtons[1].interactable = true;
                 mapMenuButtons[2].interactable = true;
                 //Level 3 ON
                 break;
-            case 9:
+            case 8:
+                mapMenuButtons[0].interactable = true;
+                mapMenuButtons[1].interactable = true;
+                mapMenuButtons[2].interactable = true;
                 mapMenuButtons[3].interactable = true;
                 //Level 4 ON
-                break;             
+                break;
+            case 9:
+                mapMenuButtons[0].interactable = true;
+                mapMenuButtons[1].interactable = true;
+                mapMenuButtons[2].interactable = true;
+                mapMenuButtons[3].interactable = true;
+                mapMenuButtons[4].interactable = true;
+                //Level 5 ON
+                break;
             case 10:
+                mapMenuButtons[0].interactable = true;
+                mapMenuButtons[1].interactable = true;
+                mapMenuButtons[2].interactable = true;
+                mapMenuButtons[3].interactable = true;
                 mapMenuButtons[4].interactable = true;
                 //Level 5 ON
                 break;
@@ -62,17 +75,29 @@ public class MapMenuManager : MonoBehaviour
 
     }
 
-    public void LoadLevel()
+    public void LoadLevel1()
     {
         GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
-
-        if (sceneIndexPlayed == 0)
-        {
-            SceneManager.LoadScene("Gameplay");
-        }
-        else
-        {
-            SceneManager.LoadScene(sceneIndexPlayed);
-        }
+        SceneManager.LoadScene("Gameplay");
+    }
+    public void LoadLevel2()
+    {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+        SceneManager.LoadScene("Gameplay2");
+    }
+    public void LoadLevel3()
+    {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+        SceneManager.LoadScene("Gameplay3");
+    }
+    public void LoadLevel4()
+    {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+        SceneManager.LoadScene("Gameplay4");
+    }
+    public void LoadLevel5()
+    {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
+        SceneManager.LoadScene("Gameplay5");
     }
 }
