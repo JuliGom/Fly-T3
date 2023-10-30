@@ -65,6 +65,7 @@ public class LevelManager : MonoBehaviour
 
     public void PlayButton()
     {
+        GameObject.Find("MusicFXS").GetComponent<MusicFXS>().checkpoint = new Vector3(0, 0, 0);
         SceneManager.LoadScene("Cinematica");
     }
 

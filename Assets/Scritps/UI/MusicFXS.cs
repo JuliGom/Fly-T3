@@ -41,5 +41,13 @@ public class MusicFXS : MonoBehaviour
         {
             checkpoint = GameObject.Find("Player").GetComponent<PlayerMovement>().respawn;
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                levelSaver = 10;
+            }
+        }
     }
 }
